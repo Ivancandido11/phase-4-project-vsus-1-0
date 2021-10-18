@@ -13,6 +13,7 @@
     - points (integer)
     - inLobby (boolean)
     - vip (boolean)
+    - banned (boolean)
     - admin (boolean)
 
   - Association
