@@ -17,7 +17,7 @@
           <%= image_tag("logo.png", alt: "logo", class: "center") %>
         </div>
         <div class="column" style="float:right">
-          <%= image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon") %>
+          <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon"), user_path(1) %>
           <p>Points: </p>
         </div>
       </div>

@@ -13,6 +13,7 @@
   width: 240px;
 }
 
+
 .navbar-ul {
   list-style-type: none;
   margin: 0;
@@ -47,6 +48,10 @@
   border-radius: 50%;
 }
 
+.profile-icon:hover {
+  background-color: black;
+}
+
 .column {
   height: 200px;
   float: left;
@@ -60,6 +65,8 @@
 }
 
 .body {
+  margin-top: 50px;
+  background-color: yellow;
   margin-left: auto;
   margin-right: auto;
   width: 75%;
