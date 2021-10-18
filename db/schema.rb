@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_153401) do
     t.string "password_digest"
     t.string "profile_pic"
     t.string "email"
-    t.integer "points"
+    t.integer "points", default: 0
     t.boolean "in_lobby", default: false
     t.boolean "vip", default: false
     t.boolean "banned", default: false
