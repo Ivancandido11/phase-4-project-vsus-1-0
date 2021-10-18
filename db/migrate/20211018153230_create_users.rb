@@ -6,10 +6,10 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :profile_pic
       t.string :email
       t.integer :points
-      t.boolean :in_lobby
-      t.boolean :vip
-      t.boolean :banned
-      t.boolean :admin
+      t.boolean :in_lobby, default: false
+      t.boolean :vip, default: false
+      t.boolean :banned, default: false
+      t.boolean :admin, default: false
 
       t.timestamps
     end

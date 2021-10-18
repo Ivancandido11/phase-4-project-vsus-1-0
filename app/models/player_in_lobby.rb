@@ -1,2 +1,0 @@
-class PlayerInLobby < ApplicationRecord
-end
