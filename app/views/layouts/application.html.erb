@@ -11,6 +11,29 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header id="logo">
+      <div class="row">
+        <div class="column" style="width:80%">
+          <%= image_tag("logo.png", alt: "logo", class: "center") %>
+        </div>
+        <div class="column" style="float:right">
+          <%= image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon") %>
+          <p>Points: </p>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <ul class="navbar-ul">
+        <li class="navbar-li"><%= link_to "Home", root_url %></li>
+        <li class="navbar-li"><%= link_to "Lobbies", lobbies_path %></li>
+        <li class="navbar-li"><%= link_to "Leaderboards", leaderboards_url %></li>
+        <li class="navbar-li"><%= link_to "Admin View", leaderboards_url %></li>
+        <li class="navbar-li"><%= link_to "Login", leaderboards_url %></li>
+        <li class="navbar-li" style="float:right"><%= link_to "Logout", leaderboards_url %></li>
+      </ul>
+    </nav>
+    <div class="body">
+      <%= yield %>
+    </div>
   </body>
 </html>
