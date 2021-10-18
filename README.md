@@ -7,7 +7,7 @@
 ### Users
   - Model
     - username (string)
-    - password (string)
+    - password_digest (string)
     - profile_pic (string)
     - email (string)
     - points (integer)
