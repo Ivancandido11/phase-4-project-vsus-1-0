@@ -1,0 +1,2 @@
+class PlayerInLobby < ApplicationRecord
+end
