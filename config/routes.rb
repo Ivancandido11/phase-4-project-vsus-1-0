@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users
   resources :leaderboards, only: :index
   resources :admin
-  root "users#index"
+  root "home#index"
 end
