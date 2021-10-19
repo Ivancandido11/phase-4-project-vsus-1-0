@@ -29,7 +29,9 @@
         <li class="navbar-li"><%= link_to "Home", root_url %></li>
         <li class="navbar-li"><%= link_to "Lobbies", lobbies_path %></li>
         <li class="navbar-li"><%= link_to "Leaderboards", leaderboards_url %></li>
-        <li class="navbar-li"><%= link_to "Admin View", admin_index_url %></li>
+        <% if Current.user && Current.user.admin %>
+          <li class="navbar-li"><%= link_to "Admin View", admin_index_url %></li>
+        <% end %>
         <% if !Current.user %>
           <li class="navbar-li"><%= link_to "Login", login_url %></li>
         <% else %>

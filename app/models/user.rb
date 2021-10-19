@@ -11,13 +11,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_secure_password
-
-  # helper_method :admin?
-
-private
-
-  def admin?
-    return true if admin == true
-  end
-
 end

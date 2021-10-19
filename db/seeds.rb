@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Seeding ..."
 
-User.create(username: "Zasd", password_digest: "1234", email: "Zasd@gmail.com")
 User.create(username: "Moca", password_digest: "1234", email: "Moca@gmail.com")
 User.create(username: "Traxcin", password_digest: "1234", email: "Traxcin@gmail.com")
 User.create(username: "Backpack", password_digest: "1234", email: "Backpack@gmail.com")

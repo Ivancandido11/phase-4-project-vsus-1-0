@@ -3,10 +3,15 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:username].downcase)
-    return head(:forbidden) unless @user.authenticate(params[:password])
 
-    session[:user_id] = @user.id
-    redirect_to root_url
+    if @user&.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to root_url
+    elsif @user
+      redirect_to login_url, flash: { error: "Invalid password" }
+    else
+      redirect_to login_url, flash: { error: "Invalid username or password" }
+    end
   end
 
   def destroy
