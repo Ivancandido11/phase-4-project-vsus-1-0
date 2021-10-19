@@ -8,9 +8,8 @@
 .center {
   display: block;
   height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 240px;
+  padding-left: auto;
+  padding-right: auto;
 }
 
 
@@ -50,18 +49,6 @@
 
 .profile-icon:hover {
   background-color: black;
-}
-
-.column {
-  height: 200px;
-  float: left;
-  padding: 5px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .body {
