@@ -17,7 +17,7 @@
           <%= image_tag("logo.png", alt: "logo", class: "center") %>
         </div>
         <div class="column" style="float:right">
-          <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon"), user_path(1) %>
+          <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon"), user_path(session[user.id]) %>
           <p>Points: </p>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <li class="navbar-li"><%= link_to "Home", root_url %></li>
         <li class="navbar-li"><%= link_to "Lobbies", lobbies_path %></li>
         <li class="navbar-li"><%= link_to "Leaderboards", leaderboards_url %></li>
-        <li class="navbar-li"><%= link_to "Admin View", leaderboards_url %></li>
+        <li class="navbar-li"><%= link_to "Admin View", admin_index_url %></li>
         <li class="navbar-li"><%= link_to "Login", leaderboards_url %></li>
         <li class="navbar-li" style="float:right"><%= link_to "Logout", leaderboards_url %></li>
       </ul>
