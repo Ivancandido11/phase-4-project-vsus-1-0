@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.avatar.attach(params[:avatar])
+      @user.avatar.attach(params[:user][:avatar])
       session[:user_id] = @user.id
       redirect_to root_url
     else

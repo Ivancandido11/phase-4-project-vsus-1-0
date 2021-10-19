@@ -15,12 +15,12 @@
     <header id="logo">
       <div class="rounded mx-auto d-block" style="width:80%">
         <%= image_tag("logo.png", alt: "logo", class: "center rounded mx-auto d-block") %>
-        <% if Current.user && Current.user.avatar.attached %>
+        <% if Current.user && Current.user.avatar.attached? %>
           <%= link_to image_tag(Current.user.avatar, alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
-          <p class="float-end">Points: </p>
+          <p class="float-end">Points: <%= Current.user.points %> </p>
         <% elsif Current.user %>
           <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
-          <p class="float-end">Points: </p>
+          <p class="float-end">Points: <%= Current.user.points %> </p>
         <% end %>
       </div>
     </header>
