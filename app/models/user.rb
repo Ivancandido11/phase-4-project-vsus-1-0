@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save { self.username = username.downcase }
+
   has_one :user_in_lobby
   has_one :lobby, through: :user_in_lobby
 
@@ -17,4 +19,5 @@ private
   def admin?
     return true if admin == true
   end
+
 end

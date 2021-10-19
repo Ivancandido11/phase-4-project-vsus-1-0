@@ -15,8 +15,13 @@
     <header id="logo">
       <div class="rounded mx-auto d-block" style="width:80%">
         <%= image_tag("logo.png", alt: "logo", class: "center rounded mx-auto d-block") %>
-        <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon float-end"), user_path(1) %><br><br>
-        <p class="float-end">Points: </p>
+        <% if Current.user && Current.user.avatar.attached %>
+          <%= link_to image_tag(Current.user.avatar, alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
+          <p class="float-end">Points: </p>
+        <% elsif Current.user %>
+          <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
+          <p class="float-end">Points: </p>
+        <% end %>
       </div>
     </header>
     <nav>
@@ -25,8 +30,11 @@
         <li class="navbar-li"><%= link_to "Lobbies", lobbies_path %></li>
         <li class="navbar-li"><%= link_to "Leaderboards", leaderboards_url %></li>
         <li class="navbar-li"><%= link_to "Admin View", admin_index_url %></li>
-        <li class="navbar-li"><%= link_to "Login", login_url %></li>
-        <li class="navbar-li" style="float:right"><%= link_to "Logout", logout_path, method: :destroy %></li>
+        <% if !Current.user %>
+          <li class="navbar-li"><%= link_to "Login", login_url %></li>
+        <% else %>
+          <li class="navbar-li" style="float:right"><%= link_to "Logout", logout_path, method: :destroy %></li>
+        <% end %>
       </ul>
     </nav>
     <div class="body">
