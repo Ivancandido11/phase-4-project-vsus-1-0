@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_184058) do
+ActiveRecord::Schema.define(version: 2021_10_20_152629) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_10_19_184058) do
 
   create_table "lobbies", force: :cascade do |t|
     t.string "name"
-    t.integer "avg_points"
+    t.integer "avg_points", default: 0
     t.boolean "private", default: false
     t.boolean "is_full", default: false
     t.datetime "created_at", precision: 6, null: false

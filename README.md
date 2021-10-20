@@ -81,7 +81,7 @@
 
 - User logged in
   - Will see a list of lobbies to join [x]
-  - Will be able to join a lobby / or view a lobby if it is already full []
+  - Will be able to join a lobby / or view a lobby if it is already full [x]
   - Will be able to create a new lobby []
     - When lobby is created / joined user will be redirected to game page []
   - Will see their current point count on the page []
