@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_one :user_in_lobby
   has_one :lobby, through: :user_in_lobby
+  has_many :lobbies, foreign_key: :host_id
 
   has_one_attached :avatar
 

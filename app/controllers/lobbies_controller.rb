@@ -1,6 +1,5 @@
 class LobbiesController < ApplicationController
   before_action :require_login
-  before_action :in_lobby?, only: %i[new create]
 
   helper_method :in_lobby?
 
@@ -9,10 +8,14 @@ class LobbiesController < ApplicationController
     @user_in_lobby = UserInLobby.new
   end
 
-  def show; end
+  def show
+    @lobby = Lobby.find(params[:id])
+    @players = @lobby.user_in_lobbies.map(&:user)
+  end
 
   def new
     @lobby = Lobby.new
+    redirect_to lobbies_url if in_lobby?
   end
 
   def create
@@ -28,7 +31,6 @@ class LobbiesController < ApplicationController
 
   def in_lobby?
     @in_lobby = UserInLobby.find_by(user: Current.user)
-    redirect_to @in_lobby.lobby if @in_lobby
   end
 
 private

@@ -1,0 +1,15 @@
+<h1><%= @lobby.name %></h1>
+
+<div class="players">
+  <% @players.each do |player| %>
+    <% if player == @lobby.host %>
+      <li style="color:blue;">Host: <%= player.username %></li>
+    <% else %>
+      <li><%= player.username %></li>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="gameboard">
+  <%= image_tag("catan-board.png", alt: "catan-board", class: "board") %>
+</div>

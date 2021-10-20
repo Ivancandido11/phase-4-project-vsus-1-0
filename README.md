@@ -82,9 +82,9 @@
 - User logged in
   - Will see a list of lobbies to join [x]
   - Will be able to join a lobby / or view a lobby if it is already full [x]
-  - Will be able to create a new lobby []
-    - When lobby is created / joined user will be redirected to game page []
-  - Will see their current point count on the page []
+  - Will be able to create a new lobby [x]
+    - When lobby is created / joined user will be redirected to game page [x]
+  - Will see their current point count on the page [x]
 
 - Admin (Advanced Deliverable)
   - Will not be able to join lobbies []
@@ -93,12 +93,12 @@
 
 ### Gamepage
 - User not logged in
-  - Will be prompted to log in to see the page []
+  - Will be prompted to log in to see the page [x]
 
 - User logged in
   - Whichever user created the lobby will be the Host []
   - Host will be able to remove players (Advanced Deliverable) []
-  - Users will see the game board and players that are in the game []
+  - Users will see the game board and players that are in the game [x]
   - Once the lobby is full, game can be completed []
 
 - Admin (Advanced Deliverable)
