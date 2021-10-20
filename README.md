@@ -45,6 +45,10 @@
   - Association
     - belongs to a player and a lobby
 
+  - Validation
+    - Max four players
+    - A player can only be in one lobby at a time
+
 ## Deliverables
 
 ### Homepage
@@ -76,7 +80,7 @@
   - Will be prompted to log in to see the page [x]
 
 - User logged in
-  - Will see a list of lobbies to join []
+  - Will see a list of lobbies to join [x]
   - Will be able to join a lobby / or view a lobby if it is already full []
   - Will be able to create a new lobby []
     - When lobby is created / joined user will be redirected to game page []
