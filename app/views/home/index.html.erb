@@ -8,12 +8,18 @@
 
 <div class="users">
   <% @users.each do |user| %>
-    <li><%= user.username %></li>
+    <li>
+      <%= user.username %>
+      Points: <%= user.points %>
+    </li>
   <% end %>
 </div>
 
 <div class="lobbies">
   <% @lobbies.each do |lobby| %>
-    <li><%= lobby.name %></li>
+    <li>
+      <%= lobby.name %>
+      Players: <%= lobby.users.count %> / 4
+    </li>
   <% end %>
 </div>

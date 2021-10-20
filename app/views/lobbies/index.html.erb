@@ -1,6 +1,7 @@
 <h1>Lobbies</h1>
 
 <p><%= flash[:error] %></p>
+<p><%= flash[:success] %></p>
 
 <% if !in_lobby? %>
   <%= button_to "Create a new lobby", new_lobby_path, :method => "get", class: "create-lobby-button"  %>
@@ -10,21 +11,20 @@
   <% @lobbies.each do |lobby| %>
     <li>
       <%= lobby.name %>
-
-      <% if lobby.is_full %>
-        Full
-        <%= button_to "View", lobby, :method => "get" %>
-      <% elsif lobby.users.include? Current.user %>
-        Players: <%= lobby.users.count %> / 4
-        <%= button_to "View", lobby, :method => "get" %>
-      <% else %>
-        Players: <%= lobby.users.count %> / 4
-        <%= form_for @user_in_lobby do |form| %>
-          <%= form.hidden_field :lobby_id, value: lobby.id %>
-          <%= form.hidden_field :user_id, value: Current.user.id %>
-          <%= form.submit "Join" %>
+        <% if lobby.is_full %>
+          Full
+          <%= button_to "View", lobby, :method => "get" %>
+        <% elsif lobby.users.include? Current.user %>
+          Players: <%= lobby.users.count %> / 4
+          <%= button_to "View", lobby, :method => "get" %>
+        <% else %>
+          Players: <%= lobby.users.count %> / 4
+          <%= form_for @user_in_lobby do |form| %>
+            <%= form.hidden_field :lobby_id, value: lobby.id %>
+            <%= form.hidden_field :user_id, value: Current.user.id %>
+            <%= form.submit "Join" %>
+          <% end %>
         <% end %>
-      <% end %>
     </li>
   <% end %>
 </ul>
