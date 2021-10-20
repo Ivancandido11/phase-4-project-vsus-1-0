@@ -1,5 +1,9 @@
 <h1>Create a new lobby</h1>
 
+<% if @lobby.errors.errors.any? %>
+  that <%= @lobby.errors.errors.first.attribute %> <%= @lobby.errors.errors.first.message %><br>
+<% end %>
+
 <div class="new-form-page">
   <%= form_for @lobby do |form| %>
     <%= form.hidden_field :lobby_id, value: @lobby.id %>

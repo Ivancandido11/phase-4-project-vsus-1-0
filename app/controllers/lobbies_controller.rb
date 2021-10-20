@@ -1,5 +1,8 @@
 class LobbiesController < ApplicationController
   before_action :require_login
+  before_action :in_lobby?, only: %i[new create]
+
+  helper_method :in_lobby?
 
   def index
     @lobbies = Lobby.all
@@ -19,9 +22,13 @@ class LobbiesController < ApplicationController
     if @lobby.save && @joined.save
       redirect_to @lobby
     else
-      byebug
       render :new
     end
+  end
+
+  def in_lobby?
+    @in_lobby = UserInLobby.find_by(user: Current.user)
+    redirect_to @in_lobby.lobby if @in_lobby
   end
 
 private
