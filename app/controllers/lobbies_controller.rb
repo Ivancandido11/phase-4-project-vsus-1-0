@@ -19,6 +19,7 @@ class LobbiesController < ApplicationController
     if @lobby.save && @joined.save
       redirect_to @lobby
     else
+      byebug
       render :new
     end
   end
