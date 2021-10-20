@@ -4,11 +4,15 @@
   <% @lobbies.each do |lobby| %>
     <li>
       <%= lobby.name %>
-      Players: <%= lobby.user_in_lobbies.size %> / 4
-      <%= form_for @user_in_lobby, url: lobby do |form| %>
-        <% if lobby.is_full == true %>
-          <%= form.submit "View" %>
-        <% else %>
+
+      <% if lobby.is_full %>
+        Full
+        <%= button_to "View", lobby, :method => "get" %>
+      <% else %>
+        Players: <%= lobby.user_in_lobbies.count %> / 4
+        <%= form_for @user_in_lobby do |form| %>
+          <%= form.hidden_field :lobby_id, value: lobby.id %>
+          <%= form.hidden_field :user_id, value: Current.user.id %>
           <%= form.submit "Join" %>
         <% end %>
       <% end %>

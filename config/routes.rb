@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :user_in_lobbies, only: :create
   resources :lobbies
   resources :users
   resources :leaderboards, only: :index

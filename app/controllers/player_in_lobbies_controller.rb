@@ -1,2 +1,0 @@
-class PlayerInLobbiesController < ApplicationController
-end
