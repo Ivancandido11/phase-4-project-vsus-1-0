@@ -9,7 +9,7 @@ class LobbiesController < ApplicationController
   end
 
   def show
-    @lobby = Lobby.find(params[:id])
+    find_lobby
     @players = @lobby.user_in_lobbies.map(&:user)
   end
 
@@ -29,11 +29,21 @@ class LobbiesController < ApplicationController
     end
   end
 
+  def destroy
+    find_lobby
+    @lobby.destroy
+    redirect_to lobbies_url
+  end
+
   def in_lobby?
     @in_lobby = UserInLobby.find_by(user: Current.user)
   end
 
 private
+
+  def find_lobby
+    @lobby = Lobby.find(params[:id])
+  end
 
   def lobby_params
     params.require(:lobby).permit(:name)

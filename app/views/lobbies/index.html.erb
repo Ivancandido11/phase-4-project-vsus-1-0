@@ -14,8 +14,11 @@
       <% if lobby.is_full %>
         Full
         <%= button_to "View", lobby, :method => "get" %>
+      <% elsif lobby.users.include? Current.user %>
+        Players: <%= lobby.users.count %> / 4
+        <%= button_to "View", lobby, :method => "get" %>
       <% else %>
-        Players: <%= lobby.user_in_lobbies.count %> / 4
+        Players: <%= lobby.users.count %> / 4
         <%= form_for @user_in_lobby do |form| %>
           <%= form.hidden_field :lobby_id, value: lobby.id %>
           <%= form.hidden_field :user_id, value: Current.user.id %>

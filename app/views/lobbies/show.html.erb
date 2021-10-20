@@ -13,3 +13,7 @@
 <div class="gameboard">
   <%= image_tag("catan-board.png", alt: "catan-board", class: "board") %>
 </div>
+
+<% if @lobby.is_full %>
+  <%= button_to "End Game", @lobby, :method => "delete" %>
+<% end %>

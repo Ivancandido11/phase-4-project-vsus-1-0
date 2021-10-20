@@ -1,5 +1,5 @@
 class Lobby < ApplicationRecord
-  has_many :user_in_lobbies
+  has_many :user_in_lobbies, dependent: :destroy
   has_many :users, through: :user_in_lobbies
   belongs_to :host, class_name: "User"
 
