@@ -65,15 +65,15 @@
 
 ### Leaderboards
 - User not logged in
-  - Will see the top 25 players []
+  - Will see the top 25 players [x]
 
 - User / Admin logged in
-  - Will see the top 25 players []
-  - Will see their current point count []
+  - Will see the top 25 players [x]
+  - Will see their current point count [x]
 
 ### Lobbies
 - User not logged in
-  - Will be prompted to log in to see the page []
+  - Will be prompted to log in to see the page [x]
 
 - User logged in
   - Will see a list of lobbies to join []

@@ -2,6 +2,16 @@
 
 <ul>
   <% @lobbies.each do |lobby| %>
-    <li><%= lobby.name %></li>
+    <li>
+      <%= lobby.name %>
+      Players: <%= lobby.user_in_lobbies.size %> / 4
+      <%= form_for @user_in_lobby, url: lobby do |form| %>
+        <% if lobby.is_full == true %>
+          <%= form.submit "View" %>
+        <% else %>
+          <%= form.submit "Join" %>
+        <% end %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

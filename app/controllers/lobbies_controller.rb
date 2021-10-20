@@ -3,5 +3,6 @@ class LobbiesController < ApplicationController
 
   def index
     @lobbies = Lobby.all
+    @user_in_lobby = UserInLobby.new
   end
 end

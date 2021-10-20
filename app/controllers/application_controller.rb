@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-    if !require_login
-      redirect_to root_url, flash: { error: "You do not have access to this page!" } unless Current.user.admin
+    if !require_login && !Current.user.admin
+      redirect_to root_url, flash: { error: "You do not have access to this page!" }
     end
   end
 end
