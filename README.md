@@ -49,81 +49,81 @@
 
 ### Homepage
 - User not logged in
-  - Will see a log in button
-  - Will see the 5 most recently created lobbies
-  - Will see the top 3 players
+  - Will see a log in button [x]
+  - Will see the 5 most recently created lobbies [x]
+  - Will see the top 3 players [x]
 
 - User logged in
-  - Will see greeting and their current point count
-  - Will see the 5 most recently created lobbies
-  - Will see the top 3 players
+  - Will see greeting and their current point count [x]
+  - Will see the 5 most recently created lobbies [x]
+  - Will see the top 3 players [x]
 
 - Admin (Advanced Deliverable)
-  - Will see a admin button on the nav
-  - Will see the 5 most recently created lobbies
-  - Will see the top 3 players
+  - Will see a admin button on the nav [x]
+  - Will see the 5 most recently created lobbies [x]
+  - Will see the top 3 players [x]
 
 ### Leaderboards
 - User not logged in
-  - Will see the top 25 players
+  - Will see the top 25 players []
 
 - User / Admin logged in
-  - Will see the top 25 players
-  - Will see their current point count
+  - Will see the top 25 players []
+  - Will see their current point count []
 
 ### Lobbies
 - User not logged in
-  - Will be prompted to log in to see the page
+  - Will be prompted to log in to see the page []
 
 - User logged in
-  - Will see a list of lobbies to join
-  - Will be able to join a lobby / or view a lobby if it is already full
-  - Will be able to create a new lobby
-    - When lobby is created / joined user will be redirected to game page
-  - Will see their current point count on the page
+  - Will see a list of lobbies to join []
+  - Will be able to join a lobby / or view a lobby if it is already full []
+  - Will be able to create a new lobby []
+    - When lobby is created / joined user will be redirected to game page []
+  - Will see their current point count on the page []
 
 - Admin (Advanced Deliverable)
-  - Will not be able to join lobbies
-  - Will be able to delete lobbies
-  - Will be able to remove players from lobbies (Advanced x2)
+  - Will not be able to join lobbies []
+  - Will be able to delete lobbies []
+  - Will be able to remove players from lobbies (Advanced x2) []
 
 ### Gamepage
 - User not logged in
-  - Will be prompted to log in to see the page
+  - Will be prompted to log in to see the page []
 
 - User logged in
-  - Whichever user created the lobby will be the Host
-  - Host will be able to remove players (Advanced Deliverable)
-  - Users will see the game board and players that are in the game
-  - Once the lobby is full, game can be completed
+  - Whichever user created the lobby will be the Host []
+  - Host will be able to remove players (Advanced Deliverable) []
+  - Users will see the game board and players that are in the game []
+  - Once the lobby is full, game can be completed []
 
 - Admin (Advanced Deliverable)
-  - Will be able to view a game
-  - Will be able to remove players
-  - Will be able to end the game, no points being awarded (Advanced x2)
+  - Will be able to view a game []
+  - Will be able to remove players []
+  - Will be able to end the game, no points being awarded (Advanced x2) []
 
 ### User Homepage
 - User not logged in
-  - Will be prompted to log in to see the page
+  - Will be prompted to log in to see the page []
 
 - User logged in
-  - Will see current users information
-  - Will be able to update information
-  - Will not be able to see other users information
+  - Will see current users information []
+  - Will be able to update information []
+  - Will not be able to see other users information []
 
 ### Admin Homepage (Advanced Deliverable)
 - Users 
-  - Will not be able to see this page
+  - Will not be able to see this page []
 
 - Admin
-  - Will be able to turn off lobby creation
-  - Will be able to turn off lobby joining
+  - Will be able to turn off lobby creation []
+  - Will be able to turn off lobby joining []
   - Will be able to access lobby list and delete / create lobbies
-    - Create private lobbies for VIPs
+    - Create private lobbies for VIPs []
   - Will be able to access player list
-    - Can ban players
-    - Can change players point counts
-    - Can assign VIPs
+    - Can ban players []
+    - Can change players point counts []
+    - Can assign VIPs []
 
 ## All The Advanced Deliverables
 
