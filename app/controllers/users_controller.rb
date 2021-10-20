@@ -21,6 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    find_user
+  end
+
+  def update
+    find_user
+    @user.update(user_params)
+
+    if @user.valid?
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+
 private
 
   def find_user
