@@ -2,6 +2,8 @@
 
 <p><%= flash[:error] %></p>
 
+<%= button_to "Create a new lobby", new_lobby_path, :method => "get", class: "create-lobby-button"  %>
+
 <ul>
   <% @lobbies.each do |lobby| %>
     <li>

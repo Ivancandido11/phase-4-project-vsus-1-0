@@ -7,4 +7,25 @@ class LobbiesController < ApplicationController
   end
 
   def show; end
+
+  def new
+    @lobby = Lobby.new
+  end
+
+  def create
+    @lobby = Lobby.new(lobby_params)
+    @joined = UserInLobby.new(user: Current.user, lobby: @lobby)
+
+    if @lobby.save && @joined.save
+      redirect_to @lobby
+    else
+      render :new
+    end
+  end
+
+private
+
+  def lobby_params
+    params.require(:lobby).permit(:name)
+  end
 end

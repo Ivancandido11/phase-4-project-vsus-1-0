@@ -1,0 +1,13 @@
+<h1>Create a new lobby</h1>
+
+<div class="new-form-page">
+  <%= form_for @lobby do |form| %>
+    <%= form.hidden_field :lobby_id, value: @lobby.id %>
+    <%= form.hidden_field :user_id, value: Current.user.id %>
+
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.submit %>
+  <% end %>
+</div>
