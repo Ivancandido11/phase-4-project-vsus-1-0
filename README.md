@@ -96,10 +96,10 @@
   - Will be prompted to log in to see the page [x]
 
 - User logged in
-  - Whichever user created the lobby will be the Host []
+  - Whichever user created the lobby will be the Host [x]
   - Host will be able to remove players (Advanced Deliverable) []
   - Users will see the game board and players that are in the game [x]
-  - Once the lobby is full, game can be completed []
+  - Once the lobby is full, game can be completed [x]
 
 - Admin (Advanced Deliverable)
   - Will be able to view a game []
@@ -108,7 +108,7 @@
 
 ### User Homepage
 - User not logged in
-  - Will be prompted to log in to see the page []
+  - Will be prompted to log in to see the page [x]
 
 - User logged in
   - Will see current users information []

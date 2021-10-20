@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: :show
+
   def show
     find_user
   end
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
 private
 
   def find_user
-    @user = User.find(session[user.id])
+    @user = Current.user
   end
 
   def user_params
