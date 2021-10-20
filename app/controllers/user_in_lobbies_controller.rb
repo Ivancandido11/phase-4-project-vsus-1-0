@@ -1,8 +1,12 @@
 class UserInLobbiesController < ApplicationController
   def create
-    UserInLobby.create(user_in_lobby_params)
+    @joined = UserInLobby.create(user_in_lobby_params)
     lobby = Lobby.find(params[:user_in_lobby][:lobby_id])
-    redirect_to lobby
+    if @joined.valid?
+      redirect_to lobby
+    else
+      redirect_to lobbies_path, flash: { error: @joined.errors.errors.first.type }
+    end
   end
 
 private
