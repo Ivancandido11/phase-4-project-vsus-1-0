@@ -16,11 +16,21 @@
       <div class="rounded mx-auto d-block" style="width:80%">
         <%= image_tag("logo.png", alt: "logo", class: "center rounded mx-auto d-block") %>
         <% if Current.user && Current.user.avatar.attached? %>
-          <%= link_to image_tag(Current.user.avatar, alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
-          <p class="float-end">Points: <%= Current.user.points %> </p>
+          <div class="card w-50" style="margin: 15px; float:right">
+            <div class="card-body">
+              <h5 class="card-title"><%= Current.user.username %></h5>
+              <p class="card-text">Points: <%= Current.user.points %></p>
+              <%= link_to image_tag(Current.user.avatar, alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %>
+            </div>
+          </div>
         <% elsif Current.user %>
-          <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %><br><br>
-          <p class="float-end">Points: <%= Current.user.points %> </p>
+          <div class="card w-50" style="margin: 15px; float:right">
+              <div class="card-body">
+                <h5 class="card-title"><%= Current.user.username %></h5>
+                <p class="card-text">Points: <%= Current.user.points %></p>
+                <%= link_to image_tag("profile-icon.png", alt: "profile-icon", class: "profile-icon float-end"), user_path(Current.user.id) %>
+              </div>
+            </div>
         <% end %>
       </div>
     </header>

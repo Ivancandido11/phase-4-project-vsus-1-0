@@ -1,13 +1,7 @@
-<% if Current.user %>
-  <h2 class="text-dark">Welcome, <%= @user.username %></h2>
-<% else %>
-  <h2 class="text-dark">Welcome Stranger!</h2>
-<% end %>
 
 <p><%= flash[:error] %></p>
 
 <div class="d-flex flex-row justify-content-between" >
   <%= render partial: "users/users", locals: { users: @users } %>
-  <%= render partial: "lobbies/lobbies", locals: { lobbies: @lobbies } %>
+  <%= render partial: "lobbies/lobbies", locals: { lobbies: @lobbies, lobbies_page: false } %>
 </div>
-

@@ -13,7 +13,27 @@
       <th scope="col"><%= lobby.users.count %> / 4</th>
       <th scope="col"><%= lobby.name %></th>
       <th scope="col"><%= lobby.avg_points %></th>
-      <th scope="col"><%= button_to "View", lobby, :method => "get" %></th>
+      <% if !lobbies_page %>
+        <th scope="col"><%= button_to "View", lobby, method: :get, class: "btn btn-primary" %></th>
+      <% else %>
+        <% if lobby.is_full %>
+          <th scope="col">
+            <%= button_to "View", lobby, method: :get, class: "btn btn-primary" %>
+          </th>
+        <% elsif lobby.users.include? Current.user %>
+          <th scope="col">
+            <%= button_to "View", lobby, method: :get, class: "btn btn-primary" %>
+          </th>
+        <% else %>
+          <th scope="col">
+            <%= form_for @user_in_lobby do |form| %>
+              <%= form.hidden_field :lobby_id, value: lobby.id %>
+              <%= form.hidden_field :user_id, value: Current.user.id %>
+              <%= form.submit "Join", class: "btn btn-primary" %>
+            <% end %>
+          </th>
+        <% end %>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
