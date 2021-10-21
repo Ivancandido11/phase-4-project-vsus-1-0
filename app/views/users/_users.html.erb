@@ -11,7 +11,11 @@
   <% users.each_with_index do |user, index| %>
     <tr>
       <th scope="col"><%= index + 1 %></th>
-      <th scope="col"><%= image_tag(user.avatar, alt: "profile-icon", style: "height: 50px;width: 50px;") %></th>
+      <% if user.avatar.attached? %>
+        <th scope="col"><%= image_tag(user.avatar, alt: "profile-icon", style: "height: 50px;width: 50px;") %></th>
+      <% else %>  
+        <th scope="col"><%= image_tag("profile-icon.png", alt: "profile-icon", style: "height: 50px;width: 50px;") %></th>
+      <% end %>
       <th scope="col"><%= user.username %></th>
       <th scope="col"><%= user.points %></th>
     </tr>
