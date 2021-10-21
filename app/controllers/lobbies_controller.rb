@@ -52,6 +52,6 @@ private
   end
 
   def lobby_params
-    params.require(:lobby).permit(:name)
+    params.require(:lobby).permit(:name, :host_id)
   end
 end

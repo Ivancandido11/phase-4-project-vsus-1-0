@@ -1,0 +1,20 @@
+<table class="table table-dark table-hover table-striped" style="margin: 0px 2px">
+  <thead>
+    <tr>
+      <th scope="col">Players</th>
+      <th scope="col">Title</th>
+      <th scope="col">Average Lobby Points</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% lobbies.each do |lobby| %>
+    <tr>
+      <th scope="col"><%= lobby.users.count %> / 4</th>
+      <th scope="col"><%= lobby.name %></th>
+      <th scope="col"><%= lobby.avg_points %></th>
+      <th scope="col"><%= button_to "View", lobby, :method => "get" %></th>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

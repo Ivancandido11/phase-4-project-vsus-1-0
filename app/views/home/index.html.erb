@@ -1,30 +1,13 @@
-<% if session[:user_id] %>
-  <h2>Welcome, <%= @user.username %></h2>
+<% if Current.user %>
+  <h2 class="text-dark">Welcome, <%= @user.username %></h2>
 <% else %>
-  <h2>Welcome Stranger!</h2>
+  <h2 class="text-dark">Welcome Stranger!</h2>
 <% end %>
 
 <p><%= flash[:error] %></p>
 
-<div class="users">
-  <% @users.each do |user| %>
-    <li>
-      <% if user.avatar.attached? %>
-        <%= image_tag(user.avatar, alt: "profile-icon", style: "height: 50px;width: 50px;") %>
-      <% else %>
-        <%= image_tag("profile-icon.png", alt: "profile-icon", style: "height: 50px;width: 50px;") %>
-      <% end %>
-      <%= user.username %>
-      Points: <%= user.points %>
-    </li>
-  <% end %>
+<div class="d-flex flex-row justify-content-between" >
+  <%= render partial: "users/users", locals: { users: @users } %>
+  <%= render partial: "lobbies/lobbies", locals: { lobbies: @lobbies } %>
 </div>
 
-<div class="lobbies">
-  <% @lobbies.each do |lobby| %>
-    <li>
-      <%= lobby.name %>
-      Players: <%= lobby.users.count %> / 4
-    </li>
-  <% end %>
-</div>
