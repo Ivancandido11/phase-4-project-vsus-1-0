@@ -24,18 +24,30 @@
         <% end %>
       </div>
     </header>
-    <nav>
-      <ul class="navbar-ul">
-        <li class="navbar-li"><%= link_to "Home", root_url %></li>
-        <li class="navbar-li"><%= link_to "Lobbies", lobbies_path %></li>
-        <li class="navbar-li"><%= link_to "Leaderboards", leaderboards_url %></li>
+    <nav class="navbar navbar-dark bg-dark navbar-ul ">
+      <ul class="nav nav-tabs nav-fill navbar-ul">
+        <li class="nav-item">
+          <%= link_to "Home", root_url, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Lobbies", lobbies_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Leaderboards", leaderboards_url, class: "nav-link" %>
+        </li>
         <% if Current.user && Current.user.admin %>
-          <li class="navbar-li"><%= link_to "Admin View", admin_index_url %></li>
+          <li class="nav-item">
+            <%= link_to "Admin View", admin_index_url, class: "nav-link" %>
+          </li>
         <% end %>
         <% if !Current.user %>
-          <li class="navbar-li"><%= link_to "Login", login_url %></li>
+          <li class="nav-item">
+            <%= link_to "Login", login_url, class: "nav-link" %>
+          </li>
         <% else %>
-          <li class="navbar-li" style="float:right"><%= link_to "Logout", logout_path, method: :destroy %></li>
+          <li class="nav-item" style="float:right">
+            <%= link_to "Logout", logout_path, method: :destroy, class: "nav-link" %>
+          </li>
         <% end %>
       </ul>
     </nav>

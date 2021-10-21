@@ -111,13 +111,13 @@
   - Will be prompted to log in to see the page [x]
 
 - User logged in
-  - Will see current users information []
-  - Will be able to update information []
-  - Will not be able to see other users information []
+  - Will see current users information [x]
+  - Will be able to update information [x]
+  - Will not be able to see other users information [x]
 
 ### Admin Homepage (Advanced Deliverable)
 - Users 
-  - Will not be able to see this page []
+  - Will not be able to see this page [x]
 
 - Admin
   - Will be able to turn off lobby creation []
@@ -128,6 +128,14 @@
     - Can ban players []
     - Can change players point counts []
     - Can assign VIPs []
+
+### Stats Page (Advanced Deliverable)
+- All
+  - Will display for all users who have played one game
+    - Games played
+    - Wins
+    - 2nd place
+    - losses
 
 ## All The Advanced Deliverables
 

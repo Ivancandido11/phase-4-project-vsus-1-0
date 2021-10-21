@@ -59,8 +59,6 @@ gem "pry-rails"
 
 gem "bcrypt"
 
-gem "devise"
-
 gem "aws-sdk-s3", require: false
 
 gem "pry"

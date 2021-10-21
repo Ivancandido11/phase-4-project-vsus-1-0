@@ -9,6 +9,11 @@
 <div class="users">
   <% @users.each do |user| %>
     <li>
+      <% if user.avatar.attached? %>
+        <%= image_tag(user.avatar, alt: "profile-icon", style: "height: 50px;width: 50px;") %>
+      <% else %>
+        <%= image_tag("profile-icon.png", alt: "profile-icon", style: "height: 50px;width: 50px;") %>
+      <% end %>
       <%= user.username %>
       Points: <%= user.points %>
     </li>
