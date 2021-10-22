@@ -24,6 +24,7 @@ class LobbiesController < ApplicationController
     @joined = UserInLobby.new(user: Current.user, lobby: @lobby)
 
     if @lobby.save && @joined.save
+      @joined.calculate_avg_points
       redirect_to @lobby
     else
       render :new

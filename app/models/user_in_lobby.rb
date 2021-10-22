@@ -6,6 +6,13 @@ class UserInLobby < ApplicationRecord
   validate :validate_host
   validate :player_can_only_be_in_one_game_at_a_time
 
+  def calculate_avg_points
+    unless lobby.users.size.zero?
+      average = lobby.users.sum(:points) / lobby.users.size.to_f
+      lobby.update(avg_points: average)
+    end
+  end
+
 private
 
   def validate_host

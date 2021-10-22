@@ -1,8 +1,6 @@
 <h1>Create a new lobby</h1>
 
-<% if @lobby.errors.errors.any? %>
-  that <%= @lobby.errors.errors.first.attribute %> <%= @lobby.errors.errors.first.message %><br>
-<% end %>
+<%= render partial: "shared/errors", locals: { user: @lobby } %>
 
 <div class="new-form-page">
   <%= form_for @lobby do |form| %>
