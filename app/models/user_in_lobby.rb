@@ -28,6 +28,6 @@ private
   end
 
   def player_can_only_be_in_one_game_at_a_time
-    errors.add(:base, "You are already in a game.") if UserInLobby.where(user_id: user.id).size > 1
+    return errors.add(:base, "You are already in a game.") if UserInLobby.where(user_id: user.id).size > 1
   end
 end
