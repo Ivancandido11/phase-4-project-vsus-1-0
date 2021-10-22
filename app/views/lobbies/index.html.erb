@@ -4,11 +4,11 @@
 <%= render partial: "shared/success" %>
 
 <% if !in_lobby? %>
-  <%= button_to "Create a new lobby", new_lobby_path, :method => "get", class: "btn btn-primary"  %>
+  <%= button_to "Create a new lobby", new_lobby_path, :method => "get", class: "btn btn-primary"  %><br>
   <%= render partial: "lobbies", locals: { lobbies: @lobbies, lobbies_page: true } %>
 <% else %>
   <div class="alert alert-primary" role="alert">
     You are currently in the lobby: <%= in_lobby?.lobby.name %>
-  </div>
+  </div><br>
   <%= render partial: "lobbies", locals: { lobbies: @lobbies, lobbies_page: false } %>
-<% end %> <br>
+<% end %>

@@ -1,16 +1,24 @@
-<h1>Create a new lobby</h1>
+<div tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create a new lobby</h5><br>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "shared/errors", locals: {user: @user} %>
+        <%= form_for @lobby do |form| %>
+          <div class="col-md-9">
+            <%= form.hidden_field :lobby_id, value: @lobby.id %>
+            <%= form.hidden_field :user_id, value: Current.user.id %>
+            <%= form.hidden_field :host_id, value: Current.user.id %>
 
-<%= render partial: "shared/errors", locals: { user: @lobby } %>
+            <%= form.label :name, class: "form-label" %>
+            <%= form.text_field :name, class: "form-control" %><br><br>
+          </div>
 
-<div class="new-form-page">
-  <%= form_for @lobby do |form| %>
-    <%= form.hidden_field :lobby_id, value: @lobby.id %>
-    <%= form.hidden_field :user_id, value: Current.user.id %>
-    <%= form.hidden_field :host_id, value: Current.user.id %>
-
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-
-    <%= form.submit "Create Lobby", class: "btn btn-primary" %>
-  <% end %>
+          <%= form.submit "Create Lobby", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
