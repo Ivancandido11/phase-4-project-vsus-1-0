@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by(username: params[:username].downcase)
+    @user = User.find_by(email: params[:email].downcase)
 
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     elsif @user
       redirect_to login_url, flash: { error: "Invalid password" }
     else
-      redirect_to login_url, flash: { error: "Invalid username or password" }
+      redirect_to login_url, flash: { error: "Invalid email or password" }
     end
   end
 

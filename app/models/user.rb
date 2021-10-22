@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save { self.username = username.downcase }
+  before_save { self.email = email.downcase }
 
   has_one :user_in_lobby
   has_one :lobby, through: :user_in_lobby
