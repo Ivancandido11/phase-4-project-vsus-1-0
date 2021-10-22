@@ -11,6 +11,7 @@ class LobbiesController < ApplicationController
   def show
     find_lobby
     @players = @lobby.user_in_lobbies.map(&:user)
+    @user_in_lobby = UserInLobby.new
   end
 
   def new

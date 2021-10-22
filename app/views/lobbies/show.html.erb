@@ -1,19 +1,19 @@
 <h1><%= @lobby.name %></h1>
 
 <div class="players">
-  <% @players.each do |player| %>
-    <% if player == @lobby.host %>
-      <li style="color:blue;">Host: <%= player.username %></li>
-    <% else %>
-      <li><%= player.username %></li>
-    <% end %>
-  <% end %>
+  <%= render partial: "game", locals: {players: @players, lobby: @lobby} %>
 </div>
 
 <div class="gameboard">
-  <%= image_tag("catan-board.png", alt: "catan-board", class: "board") %>
+  <%= image_tag("catan-board.png", alt: "catan-board", class: "irounded mx-auto d-block", style: "width: 80%; height: 800px;") %>
 </div>
 
 <% if @lobby.is_full %>
   <%= button_to "End Game", @lobby, method: "delete" %>
+<% elsif !@lobby.is_full && Current.user.in_lobby %>
+  <%= form_for @user_in_lobby do |form| %>
+    <%= form.hidden_field :lobby_id, value: @lobby.id %>
+    <%= form.hidden_field :user_id, value: Current.user.id %>
+    <%= form.submit "Join", class: "btn btn-primary" %>
+  <% end %>
 <% end %>

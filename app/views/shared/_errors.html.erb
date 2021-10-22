@@ -5,7 +5,7 @@
 <% elsif user && user.errors.any? %>
   <% user.errors.full_messages.each do |message| %>
     <div class="alert alert-danger" role="alert">
-      <%= message %>
+      <li><%= message %></li>
     </div>
   <% end %>
 <% end %>
