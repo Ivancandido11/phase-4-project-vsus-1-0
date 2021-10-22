@@ -32,14 +32,9 @@ class LobbiesController < ApplicationController
 
   def destroy
     find_lobby
-    winners = @lobby.users.sample(2)
-    winners[0].increment!(:points, 10)
-    winners[1].increment!(:points, 5)
+    message = @lobby.find_winners
     @lobby.destroy
-    redirect_to lobbies_url, flash: {
-      success: "#{winners[0].username} earned 10 points for winning!
-        and #{winners[1].username} earned 5 points for second place!",
-    }
+    redirect_to @lobby, flash: { success: message }
   end
 
   def in_lobby?
