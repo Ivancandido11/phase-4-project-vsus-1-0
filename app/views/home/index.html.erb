@@ -1,5 +1,5 @@
 
-<%= render partial: "shared/errors" %>
+<%= render partial: "shared/errors", locals: {user: nil} %>
 
 <div class="d-flex flex-row justify-content-between" >
   <%= render partial: "users/users", locals: { users: @users } %>

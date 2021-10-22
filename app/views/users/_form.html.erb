@@ -1,20 +1,41 @@
-<div>
-  <%= form_for user do |form| %>
-    <%= form.label :username %>
-    <%= form.text_field :username %> <br><br>
 
-    <%= form.label :email %>
-    <%= form.email_field :email %> <br><br>
+<div tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create an Account</h5><br>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "shared/errors", locals: {user: @user} %>
+        <%= form_for user, class: "row g-3" do |form|  %>
+          <div class="col-md-9">
+            <%= form.label :username, class: "form-label" %>
+            <%= form.text_field :username, class: "form-control" %>
+          </div>
 
-    <%= form.label :password %>
-    <%= form.password_field :password %> <br><br>
+          <div class="col-md-9">
+            <%= form.label :email, class: "form-label" %>
+            <%= form.email_field :email, class: "form-control" %> 
+          </div>
 
-    <%= form.label "Confirm Password" %>
-    <%= form.password_field :password_confirmation %> <br><br>
+          <div class="col-md-9">
+            <%= form.label :password, class: "form-label" %>
+            <%= form.password_field :password, class: "form-control" %> 
+          </div>
 
-    <%= form.label "Profile Photo" %>
-    <%= form.file_field :avatar %> <br><br>
+          <div class="col-md-9">
+            <%= form.label "Confirm Password", class: "form-label" %>
+            <%= form.password_field :password_confirmation, class: "form-control" %> <br>
+          </div>
 
-    <%= form.submit %>
-  <% end %>
+          <%= form.label "Profile Photo" %>
+          <%= form.file_field :avatar %> <br><br>
+
+          <div class="modal-footer">
+            <%= form.submit "Create Acount", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

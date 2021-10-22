@@ -1,6 +1,6 @@
 <h1>Lobbies</h1>
 
-<%= render partial: "shared/errors" %>
+<%= render partial: "shared/errors", locals: {user: nil} %>
 <%= render partial: "shared/success" %>
 
 <% if !in_lobby? %>
