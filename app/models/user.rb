@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates_presence_of :username, :password_digest, :email
-  validates :username, uniqueness: true
-  validates :email, uniqueness: true
+  validates_uniqueness_of :username, case_sensitive: false
+  validates_uniqueness_of :email, case_sensitive: false
 
   has_secure_password
 end

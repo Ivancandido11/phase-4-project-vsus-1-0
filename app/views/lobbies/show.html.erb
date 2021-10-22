@@ -5,12 +5,12 @@
 </div>
 
 <div class="gameboard">
-  <%= image_tag("catan-board.png", alt: "catan-board", class: "irounded mx-auto d-block", style: "width: 80%; height: 800px;") %>
+  <%= image_tag("catan-board.png", alt: "catan-board", class: "rounded mx-auto d-block", style: "width: 80%; height: 800px;") %>
 </div>
 
 <% if @lobby.is_full %>
   <%= button_to "End Game", @lobby, method: "delete" %>
-<% elsif !@lobby.is_full && Current.user.in_lobby %>
+<% elsif !in_lobby? %>
   <%= form_for @user_in_lobby do |form| %>
     <%= form.hidden_field :lobby_id, value: @lobby.id %>
     <%= form.hidden_field :user_id, value: Current.user.id %>
