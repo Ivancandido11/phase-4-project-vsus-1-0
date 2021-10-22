@@ -1,15 +1,30 @@
-<h1>Welcome, please sign in!</h1>
 
-<p><%= flash[:error] %></p>
+<div tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Welcome, please sign in!</h5><br>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "shared/errors" %>
+        <%= form_tag({}, {method: :post}) do %>
+          <div class="form-group">
+            <%= label_tag :username %>
+            <%= text_field_tag :username, "", class: "form-control", style: "width: 250px" %> <br>
+          </div>
 
-<%= form_tag({}, {method: :post}) do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %> <br><br>
+          <div class="form-group">
+            <%= label_tag :password %>
+            <%= password_field_tag :password, "", class: "form-control", style: "width: 250px" %> <br>
+          </div>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %> <br><br>
+          <div class="modal-footer">
+            <%= submit_tag "Login", class: "btn btn-primary" %>
+            <%= link_to "Create an account", new_user_path, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%= submit_tag "Login" %>
-<% end %>
-
-<%= link_to "Create an account", new_user_path %>

@@ -1,5 +1,5 @@
 
-<p><%= flash[:error] %></p>
+<%= render partial: "shared/errors" %>
 
 <div class="d-flex flex-row justify-content-between" >
   <%= render partial: "users/users", locals: { users: @users } %>
