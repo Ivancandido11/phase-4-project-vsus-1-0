@@ -16,4 +16,12 @@ RSpec.describe Lobby, type: :model do
   describe "should accept nested attributes for user_in_lobbies" do
     it { should accept_nested_attributes_for(:user_in_lobbies) }
   end
+
+  describe "validates presence of name" do
+    it { should validate_presence_of(:name) }
+  end
+
+  describe "validates that each lobby name is unique" do
+    it { should validate_uniqueness_of(:name) }
+  end
 end
