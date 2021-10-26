@@ -24,4 +24,24 @@ RSpec.describe Lobby, type: :model do
   describe "validates that each lobby name is unique" do
     it { should validate_uniqueness_of(:name) }
   end
+
+  describe "#find_winners should be false when the lobby is not full" do
+    it do
+      lobby = build(:lobby, is_full: false)
+      message = lobby.find_winners
+      expect(message).to eq nil
+    end
+  end
+
+  describe "should grab the lobby 1st and 2nd place players update their point count, and generate a message" do
+    it do
+      lobby = build(:lobby, is_full: true)
+      4.times do 
+        lobby.users << build(:user, username: Faker::Name.unique.name, email: Faker::Internet.unique.email)
+      end
+      message = lobby.find_winners
+      expect(message).to include("earned 10 points for winning!")
+      expect(message).to include("earned 5 points for second place!")
+    end
+  end
 end
