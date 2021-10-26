@@ -1,8 +1,7 @@
 class UserInLobbiesController < ApplicationController
   def create
     @joined = UserInLobby.create(user_in_lobby_params)
-    if @joined.valid?
-      @joined.calculate_avg_points
+    if @joined.persisted?
       redirect_to @joined.lobby
     else
       redirect_to lobbies_path, flash: { error: @joined.errors.errors.first.type }
