@@ -18,12 +18,16 @@ class UserInLobby < ApplicationRecord
 private
 
   def validate_host
+    return false unless lobby
+
     return if lobby.host
 
     lobby.update(host: user)
   end
 
   def max_four_players
+    return false unless lobby
+
     errors.add(:base, "#{lobby.name} is full.") if lobby.is_full
 
     lobby.update(is_full: true) if lobby.user_in_lobbies.size == 4
