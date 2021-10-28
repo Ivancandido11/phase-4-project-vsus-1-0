@@ -90,6 +90,72 @@ RSpec.describe UserInLobby, type: :model do
     end
   end
 
+  context "methods" do
+    describe "#calculate_avg_points should get the points of all the lobby's users and calculate the average" do
+      it "lobby.avg_points should equal 20 for 20 points and 1 player" do
+        user = create(:user, points: 20)
+        lobby = create(:lobby, host: user)
+        user_in_lobby = create(:user_in_lobby, user: user, lobby: lobby)
+
+        user_in_lobby.lobby.reload
+        user_in_lobby.calculate_avg_points
+
+        expect(lobby.avg_points).to eq 20
+      end
+
+      it "lobby.avg_points should equal 30 for 60 points and 2 players" do
+        user = create(:user, points: 20)
+        lobby = create(:lobby, host: user)
+        user_in_lobby = create(:user_in_lobby, user: user, lobby: lobby)
+
+        user2 = create(:user, username: "Testing2", email: "testing2@gmail.com", points: 40)
+        user_in_lobby2 = create(:user_in_lobby, user: user2, lobby: lobby)
+
+        user_in_lobby2.lobby.reload
+        user_in_lobby2.calculate_avg_points
+
+        expect(lobby.avg_points).to eq 30
+      end
+
+      it "lobby.avg_points should equal 40 for 120 points and 3 players" do
+        user = create(:user, points: 20)
+        lobby = create(:lobby, host: user)
+        user_in_lobby = create(:user_in_lobby, user: user, lobby: lobby)
+
+        user2 = create(:user, username: "Testing2", email: "testing2@gmail.com", points: 40)
+        user_in_lobby2 = create(:user_in_lobby, user: user2, lobby: lobby)
+
+        user3 = create(:user, username: "Testing3", email: "testing3@gmail.com", points: 60)
+        user_in_lobby3 = create(:user_in_lobby, user: user3, lobby: lobby)
+
+        user_in_lobby3.lobby.reload
+        user_in_lobby3.calculate_avg_points
+
+        expect(lobby.avg_points).to eq 40
+      end
+
+      it "lobby.avg_points should equal 35 for 140 points and 4 players" do
+        user = create(:user, points: 20)
+        lobby = create(:lobby, host: user)
+        user_in_lobby = create(:user_in_lobby, user: user, lobby: lobby)
+
+        user2 = create(:user, username: "Testing2", email: "testing2@gmail.com", points: 40)
+        user_in_lobby2 = create(:user_in_lobby, user: user2, lobby: lobby)
+
+        user3 = create(:user, username: "Testing3", email: "testing3@gmail.com", points: 60)
+        user_in_lobby3 = create(:user_in_lobby, user: user3, lobby: lobby)
+
+        user4 = create(:user, username: "Testing4", email: "testing4@gmail.com", points: 20)
+        user_in_lobby4 = create(:user_in_lobby, user: user4, lobby: lobby)
+
+        user_in_lobby4.lobby.reload
+        user_in_lobby4.calculate_avg_points
+
+        expect(lobby.avg_points).to eq 35
+      end
+    end
+  end
+
   def create_lobby_with_players(num)
     @lobby = build(:lobby, is_full: false)
     num.times do 
